@@ -39,7 +39,9 @@ namespace Windows_OEM_Editor
 
                     if(url == string.Empty) continue;
 
-                    image.Source = new BitmapImage(new Uri(url));
+                    var f = Path.GetTempFileName();
+                    File.Copy(url, f, true);
+                    image.Source = new BitmapImage(new Uri(f));
                 }
             };
         }
@@ -103,6 +105,8 @@ namespace Windows_OEM_Editor
                             Path.Combine(Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System)),
                                 "oemImage.bmp");
 
+                        if(File.Exists(f)) File.Delete(f);
+
                         image_.Save(f, ImageFormat.Bmp);
 
                         _regHelper.SetValue(tb.Tag.ToString(), f);
@@ -113,6 +117,8 @@ namespace Windows_OEM_Editor
 
                 _regHelper.SetValue(tb.Tag.ToString(), tb.Text);
             }
+
+            MessageBox.Show("OEM Information has been udpated!", "Updated ORM Information");
         }
     }
 }
