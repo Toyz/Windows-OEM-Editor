@@ -27,7 +27,7 @@
                 </StackPanel>
                 <StackPanel Margin="5">
                     <TextBlock Text="Support Hours"/>
-                    <TextBox Tag="SupportHouts" x:Name="SupportHoursBox"/>
+                    <TextBox Tag="SupportHours" x:Name="SupportHoursBox"/>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
