@@ -105,7 +105,7 @@ namespace Windows_OEM_Editor
                             Path.Combine(Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System)),
                                 "oemImage.bmp");
 
-                        if (tb.ToolTip.ToString() == f) return;
+                        if (tb.ToolTip.ToString() == f) continue;
 
                         if(File.Exists(f)) File.Delete(f);
 
